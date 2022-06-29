@@ -13,12 +13,7 @@ addEventListener('DOMContentLoaded', function () {
 const
 	body = document.body,
 	nav = document.querySelector('.nav'),
-	navIcon = document.querySelector('.nav_icon'),
-	heroFull = document.querySelector('.hero-full'),
-	heroImg = document.querySelector('.hero_img'),
-	heroOverlay = document.querySelector('.hero_overlay'),
-	gallery = document.querySelector('.gallery_slider'),
-	galleryInner = document.querySelector('.gallery_slider_inner')
+	navIcon = document.querySelector('.nav_icon')
 
 /**
  * Nav mobile menu burger
@@ -34,108 +29,8 @@ if(navIcon) {
 }
 
 /**
- * Height of hero depends of nav height.
- */
-if (heroFull) {
-	const setHeightOfHero = () => {
-		const navHeight = nav.offsetHeight
-		heroFull.style.height = `calc(100vh - ${navHeight}px)`
-	}
-
-	if (window.matchMedia('(min-width: 1000px)').matches) setHeightOfHero()
-
-	window.addEventListener('resize', () => {
-		if (window.matchMedia('(min-width: 1000px)').matches) setHeightOfHero()
-		else heroFull.style.height = 'auto'
-	})
-}
-
-/**
- * Height of the white part on article hero
- */
-if (heroOverlay) {
-	const setHeightOfOverlay = () => {
-		const overlayHeight = heroImg.offsetHeight
-		heroOverlay.style.height = `calc(${overlayHeight / 2}px)`
-	}
-	setHeightOfOverlay()
-	window.addEventListener('resize', () => setHeightOfOverlay())
-}
-
-/**
- * Gallery draggable
- */
-
-let
-	pressed = false,
-	startX = null,
-	x = null
-
-if(gallery) {
-	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-		gallery.addEventListener('touchstart', e => {
-			pressed = true
-			startX = e.touches[0].screenX - galleryInner.offsetLeft
-			gallery.style.cursor = 'grabbing'
-		}, {passive: true})
-
-		gallery.addEventListener('touchenter', () => gallery.style.cursor = 'grab', {passive: true})
-
-		gallery.addEventListener('touchend', () => gallery.style.cursor = 'grab', {passive: true})
-
-		window.addEventListener('touchend', () => pressed = false, {passive: true})
-
-		gallery.addEventListener('touchmove', e => {
-			if (!pressed) return
-			e.preventDefault()
-
-			x = e.touches[0].screenX
-
-			galleryInner.style.left = `${(x - startX)}px`
-
-			checkBoundary()
-		}, {passive: true})
-	} else {
-		gallery.addEventListener('mousedown', e => {
-			pressed = true
-			startX = e.offsetX - galleryInner.offsetLeft
-			gallery.style.cursor = 'grabbing'
-		})
-
-		gallery.addEventListener('mouseenter', () => gallery.style.cursor = 'grab')
-
-		gallery.addEventListener('mouseup', () => gallery.style.cursor = 'grab')
-
-		window.addEventListener('mouseup', () => pressed = false)
-
-		gallery.addEventListener('mousemove', e => {
-			if (!pressed) return
-			e.preventDefault()
-
-			x = e.offsetX
-			galleryInner.style.left = `${(x - startX)}px`
-
-			checkBoundary()
-		})
-	}
-}
-
-function checkBoundary() {
-	const
-		outer = gallery.getBoundingClientRect(),
-		inner = galleryInner.getBoundingClientRect()
-
-	if (parseInt(galleryInner.style.left) > 0) {
-		galleryInner.style.left = '0px'
-	} else if (inner.right < outer.right) {
-		galleryInner.style.left = `-${inner.width - outer.width}px`
-	}
-}
-
-/**
  * Testimonials slider
  */
-
 document.querySelectorAll('.testimonials').forEach(testimonials => {
 
 	const

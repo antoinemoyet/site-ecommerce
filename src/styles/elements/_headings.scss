@@ -1,32 +1,28 @@
 h1 {
-    font-size: f(5);
-    font-family: $f-light;
-    font-weight: 300;
+    font-weight: 600;
+    font-size: 3rem;
+    color: var(--color-dark);
+    font-family: $f-medium;
 }
 
 h2 {
-    font-size: f(3.6);
-    font-family: $f-light;
-    font-weight: 300;
-    margin-bottom: s(4);
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+    line-height: 2rem;
+    font-family: $f-medium;
 }
 
 h3 {
-    font-size: f(2.6);
     font-family: $f-light;
-    font-weight: 300;
-    margin-bottom: s(2);
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+    font-size: 1rem;
 }
 
-@media all and (min-width: $from-medium) {
-    h1 {
-        font-size: 10vw;
-    }
-    h2 {
-        font-size: 6vw;
-        max-width: 50%;
-    }
-    h3 {
-        font-size: 3vw;
-    }
+p, a, li, span{
+    line-height: normal;
+    font-family: $f-light;
+    color: var(--color-darkd);
 }

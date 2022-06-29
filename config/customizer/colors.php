@@ -8,7 +8,7 @@ add_action('customize_register', 'neptune_customizer_colors');
 function neptune_customizer_colors($wp_customize)
 {
     $wp_customize->add_setting('neptune_background_color', [
-        'default' => '#f5f5f5',
+        'default' => '#28303d',
         'transport' => 'refresh',
     ]);
 
@@ -18,7 +18,7 @@ function neptune_customizer_colors($wp_customize)
     ]);
 
     $wp_customize->add_setting('neptune_dark_color', [
-        'default' => '#28303d',
+        'default' => '#323335',
         'transport' => 'refresh',
     ]);
 
@@ -28,7 +28,7 @@ function neptune_customizer_colors($wp_customize)
     ]);
 
     $wp_customize->add_setting('neptune_gray_color', [
-        'default' => '#d4d4d4',
+        'default' => '#B5B5B5',
         'transport' => 'refresh',
     ]);
 

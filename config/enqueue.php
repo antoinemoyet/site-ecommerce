@@ -10,3 +10,4 @@ function neptune_enqueue_assets()
     wp_localize_script('neptune-script', 'NeptuneCustomVars', $neptuneCustomVars);
 }
 add_action('wp_enqueue_scripts', 'neptune_enqueue_assets');
+

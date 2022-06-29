@@ -1,9 +1,71 @@
+
+
+.testimonial{
+    .max-container{
+        background-color: var(--color-primary);
+        position: relative;
+        .container{
+            padding: 0rem;
+            width: 100%;
+            @media screen and (min-width: $from-small) {
+                padding: 4rem 0;
+            }
+            h2{
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+            .testimonials {
+                .prev, 
+                .next {
+                    width: 4rem;
+                    height: 4rem;
+                    border: 1px solid var(--color-dark);
+                    border-radius: 50%;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-right: s(1);
+                    cursor: pointer;
+                    img {
+                        padding: 2rem;
+                        height: 5rem;
+                        width: 5rem;
+                    }
+                }
+                &:last-of-type {
+                    margin-top: s(2);
+                }
+            }
+            
+            .slider {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+                .slide{
+                    h3{
+                        text-align: center;
+                    }
+                }
+            }
+            
+            .slider_inner {
+                width: 100%;
+                display: flex;
+            }
+            
+            .slide {
+                flex: 1 0 100%;
+            }
+        }
+    }
+}
 .testimonials {
     .prev, 
     .next {
         width: 4rem;
         height: 4rem;
-        background: var(--color-white);
         border: 1px solid var(--color-dark);
         border-radius: 50%;
         display: inline-flex;
@@ -12,17 +74,11 @@
         margin-right: s(1);
         cursor: pointer;
         img {
-            width: 0.5rem;
+            padding: 2rem;
         }
     }
     &:last-of-type {
         margin-top: s(2);
-        p {
-            &:first-of-type {
-                font-size: f(2);
-                margin-bottom: s(1);
-            }
-        }
     }
 }
 
@@ -32,6 +88,11 @@
     align-items: center;
     position: relative;
     overflow: hidden;
+    .slide{
+        h3{
+            text-align: center;
+        }
+    }
 }
 
 .slider_inner {
@@ -41,7 +102,6 @@
 
 .slide {
     flex: 1 0 100%;
-    margin-right: 21.5rem;
 }
 
 @media all and (min-width: $from-medium) {
@@ -62,11 +122,11 @@
                 order: 3;
             }
             &:last-of-type {
-                width: 70vw;
+                width: 100%;
                 margin-top: 0;
                 order: 2;
                 .bloc {
-                    padding: s(6) s(4);
+                    padding: s(0) s(4);
                 }
                 p {
                     text-align: center;

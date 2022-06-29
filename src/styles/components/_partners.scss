@@ -1,4 +1,7 @@
 .partners {
+    h2{
+        text-align: center;
+    }
     &_grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);

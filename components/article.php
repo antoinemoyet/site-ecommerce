@@ -1,23 +1,41 @@
-<?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
-<header class="hero hero-article">
-    <div class="container hero_container">
+<?php get_header(); ?>
 
-        <p><?php the_date(); ?> - <?php the_category(', '); ?>
+    <?php  while ( have_posts() ) : the_post(); ?>
 
-		<h1><?php the_title(); ?></h1>
+        <section class="block" >
+            <div class="max-container">
+                <div class="container">
 
-		<?php the_post_thumbnail('large', ['class' => 'hero_img']); ?>
+                    <p id="breadcrumbs">Accueil > Blog > Bonjour tout le monde !</p>
 
-    </div>
+                    <h1><?php the_title(); ?></h1>
+                    
+                    <span class="category__post"><?php echo the_category() ?></span>
 
-    <span class="hero_overlay"></span>
-</header>
+                    <div class="entry-content">
 
-<section class="article">
-    <div class="container article_container">
+                        <div>
+                            <img src="<?php echo get_the_post_thumbnail_url(); ?>">
+                        </div>
 
-		<?php the_content(); ?>
+                        <?php the_content();
+                            wp_link_pages(
+                                array(
+                                    'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'test' ),
+                                    'after'  => '</div>',
+                                )
+                            );
+                        ?>
 
-    </div>
-</section>
-<?php endwhile; endif; ?>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <?php endwhile; ?>
+
+    <?php include_once locate_template('/components/newsletter.php');?>
+
+<?php get_footer(); ?>
+
+

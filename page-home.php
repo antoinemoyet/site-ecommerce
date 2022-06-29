@@ -1,25 +1,17 @@
 <?php
-
 /**
- * Template Name: page-home.
+ * Template pour la page accueil
+ * Template Name: Modèle accueil
  */
-?>
-
-<?php get_header('home'); ?>
+get_header(); ?>
 
 <?php if (have_posts()) {
-    while (have_posts()) {
-        the_post(); ?>
+	while (have_posts()) {
+		the_post(); ?>
 
-		<div class="container-content">
+		<?php the_content(); ?>
 
-			<?php the_content(); ?>
-
-		</div>
-
-<?php
-    }
+<?php }
 } ?>
-
 
 <?php get_footer(); ?>

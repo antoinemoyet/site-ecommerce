@@ -32,55 +32,78 @@ html {
 	}
 }
 
-body {
-    background: var(--color-background);
-	font-family: $f-regular;
-	color: var(--color-dark);
-	overflow-x: hidden;
+// --------------------------------------------------
+// This file contains all container system.
+// --------------------------------------------------
+
+html{
+    overflow-x: hidden;
 }
 
 .container {
-	width: $container;
-	//max-width: 1600px;
-    margin-right: auto;
-	margin-left: auto;
+    width: $container;
+    margin: 0 auto;
+    max-width: 1200px;
+    &--full {
+        width: $container-full;
+        margin: 0 auto;
+    }
 }
 
-.container-content {
-	width: $container;
-    margin-right: auto;
-	margin-left: auto;
-	margin-top:s(6);
-	margin-bottom:s(6);
+.max-container {
+    width: $container;
+    margin: 0 auto;
+    max-width: 1800px;
+    padding: 2rem;
+    @media screen and (min-width: $from-small) {
+        padding: 3rem;
+    }
+    &--full {
+        width: $container-full;
+        margin: 0 auto;
+    }
 }
 
-section {
-	margin-top: s(6);
-	margin-bottom: s(6);
-	&.bg {
-		background: var(--color-primary);
-		padding-top: s(6);
-		padding-bottom: s(6);
-	}
+section{
+    position: relative;
+    margin: 3rem 0;
+    @media screen and (min-width: $from-small) {
+        margin: 8rem 0;
+    }
 }
 
-footer {
-	&.bg {
-		background: var(--color-primary);
-		padding-top: s(6);
-		padding-bottom: s(6);
-	}
-}
+// --------------------------------------------------
+// Template banner page.
+// --------------------------------------------------
 
-@media all and (min-width: $from-small) {
-	section {
-		margin-top: s(10);
-		margin-bottom: s(10);
-		&.bg {
-			padding-top: s(10);
-			padding-bottom: s(10);
-			margin-left:-5vw;
-			width: 100vw;
-		}
-	}
+.banner__page{
+    position: relative;
+    left: 0;
+    right: 0;
+    margin-top: -3rem;
+    margin-bottom: 0.5rem;
+    min-height: 24rem;
+    z-index: 1;
+    display: flex;
+    .max-container{
+        display: flex;
+        height: 100%;
+        min-height: 24rem;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        .container{
+            display: flex;
+            .column{
+                align-items: flex-start;
+                align-content: center;
+                justify-content: center;
+                display: flex;
+                max-width: 30rem;
+                h1{
+                    margin:2rem 0;
+                }
+            }
+        }
+    }
 }
